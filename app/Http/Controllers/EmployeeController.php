@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Job;
+use App\User;
 use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
@@ -51,13 +52,10 @@ class EmployeeController extends Controller
 
         
 
-        $user = User::where('type', '2')
-                    ->get();
-        return view('adminhome.emplist')->with('users', $user);
 
 
         $job = Job::all();
-return view('employee.joblist')->with('user',  $job );
+  return view('employee.joblist')->with('jobs', $job);
 
 
 

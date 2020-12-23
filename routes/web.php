@@ -40,6 +40,7 @@ Route::get('/home', 'EmployeeController@index')->name('employee.index');
 Route::get('/home/addjob', 'EmployeeController@addjob')->name('adminhome.addjob');
 Route::post('/home/addjob', 'EmployeeController@store');
 Route::get('/home/list', 'EmployeeController@joblist')->name('adminhome.joblist');
+Route::get('/home/list/info/{id}', 'EmployeeController@jobinfo')->name('adminhome.jobinfo');
 
 
 Route::get('/logout', 'LogoutController@index')->name('logout.index');
