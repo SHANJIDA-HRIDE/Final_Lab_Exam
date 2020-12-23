@@ -26,6 +26,8 @@ Route::post('/login', 'LoginController@verify');
 
 Route::get('/adminhome', 'AdminController@index')->name('adminhome.index');
 Route::get('/adminhome/addemployee', 'AdminController@addemp')->name('adminhome.addemployee');
+Route::post('/adminhome/addemployee', 'AdminController@store');
+Route::get('/adminhome/list', 'AdminController@emplist')->name('adminhome.emplist');
 
 
 

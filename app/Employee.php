@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Employee extends Model
 {
-    protected $table = "user";
+    protected $table = "emoloyee";
     
-    protected $primaryKey = "userid";
+    protected $primaryKey = "eid";
     public $timestamps = false;
 
     //const CREATED_AT = 'create_time';
