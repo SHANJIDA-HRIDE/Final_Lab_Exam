@@ -32,6 +32,7 @@ Route::get('/adminhome/list/info/{id}', 'AdminController@employeeinfo')->name('a
 Route::get('/adminhome/list/info/edit/{id}', 'AdminController@employeeedit')->name('employee.edit');
 Route::post('/adminhome/list/info/edit/{id}', 'AdminController@employeeupdate');
 Route::get('/adminhome/list/info/delete/{id}', 'AdminController@employeedelete')->name('employee.delete');
+Route::post('/adminhome/list', 'AdminController@fetch')->name('employee.search');
 
 
 
