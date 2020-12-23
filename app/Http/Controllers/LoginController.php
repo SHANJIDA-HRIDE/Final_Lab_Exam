@@ -34,7 +34,7 @@ class LoginController extends Controller
 				$request->session()->put('userid', $user[0]->userid);
 				
 	
-				return redirect()->route('member.index');
+				return redirect()->route('employee.index');
 		}
 		 else{
 

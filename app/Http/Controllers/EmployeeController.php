@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\restaurant;
-use App\food;
+
+use App\Job;
 use Illuminate\Support\Facades\DB;
 
 class EmployeeController extends Controller
@@ -13,7 +13,7 @@ class EmployeeController extends Controller
 
              if($req->session()->has('userid')){
 
-            return view('member.index', ['userid'=> $req->session()->get('userid')]);
+            return view('employee.index', ['userid'=> $req->session()->get('userid')]);
 
         
     }else{
@@ -23,5 +23,25 @@ class EmployeeController extends Controller
                 
        
     }
-   
+
+
+     function addjob(){
+        return view('employee.addjob');
+    }
+   public function store(Request $request){
+
+                 $job = new Job();
+                $job->cname= $request->cname;
+                $job->jtitle= $request->jtitle;
+                $job->loc= $request->loc;
+                $job->sal= $request->sal;
+              
+                
+                $job->save();
+
+                
+
+                 return redirect()->route('employee.index');
+
+}
 }

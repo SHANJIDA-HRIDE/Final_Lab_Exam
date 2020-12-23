@@ -8,6 +8,9 @@
 	<h1>Welcome home! {{ session('username') }}</h1>
 	<br>
 	<a href="/logout">logout</a><br>
+	<a href="{{ route('adminhome.addjob') }} ">Add Job </a> 
+	
+
 	
 	
 </body>
