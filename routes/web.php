@@ -28,6 +28,9 @@ Route::get('/adminhome', 'AdminController@index')->name('adminhome.index');
 Route::get('/adminhome/addemployee', 'AdminController@addemp')->name('adminhome.addemployee');
 Route::post('/adminhome/addemployee', 'AdminController@store');
 Route::get('/adminhome/list', 'AdminController@emplist')->name('adminhome.emplist');
+Route::get('/adminhome/list/info/{id}', 'AdminController@employeeinfo')->name('adminhome.empinfo');
+Route::get('/adminhome/list/info/edit/{id}', 'AdminController@employeeedit')->name('employee.edit');
+Route::post('/adminhome/list/info/edit/{id}', 'AdminController@employeeupdate');
 
 
 

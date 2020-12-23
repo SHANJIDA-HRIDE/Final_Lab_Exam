@@ -11,7 +11,7 @@
 		<table>
 			<tr>
 				<td>Employee name</td>
-				<td><input type="text" name="ename" ></td>
+				<td><input type="text" name="empname" ></td>
 			</tr>
         
 			<tr>
@@ -29,6 +29,11 @@
             <tr>
 				<td>Password</td>
 				<td><input type="text" name="password" ></td>
+			</tr>
+			<tr>
+				
+				
+				<td><input type="radio" name="radio"  value="2"> Member</td>
 			</tr>
 			<tr>
 				<td><input type="submit" name="submit" value="Submit" ></td>

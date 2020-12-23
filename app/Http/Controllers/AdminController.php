@@ -29,14 +29,15 @@ class AdminController extends Controller
 
     public function store(Request $request){
 
-                 $emoloyee = new Employee();
-                $emoloyee->ename= $request->ename;
-                $emoloyee->cname= $request->cname;
-                $emoloyee->phone= $request->phone;
-                $emoloyee->username= $request->username;
-                $emoloyee->password= $request->password;
+                 $user = new User();
+                $user->empname= $request->empname;
+                $user->cname= $request->cname;
+                $user->phone= $request->phone;
+                $user->username= $request->username;
+                $user->password= $request->password;
+                 $user->type = $request->radio;
                 
-                $emoloyee->save();
+                $user->save();
 
                 
 
@@ -45,11 +46,64 @@ class AdminController extends Controller
 }
 
   function emplist(){
-        return view('adminhome.emplist');
+       
 
-         $emoloyee = Employee::all();
-        return view('adminhome.emplist')->with('emoloyees', $emoloyee);
+        
+
+        $user = User::where('type', '2')
+                    ->get();
+        return view('adminhome.emplist')->with('users', $user);
+
+
+
     }
+
+      function employeeinfo($id){
+      $user = User::where('userid', $id)
+                    ->get();
+        
+       
+                   
+        return view('adminhome.employeeinfo')->with('users', $user);
+
+    
+    }
+
+    function employeeedit($id)
+    {
+        $user = User::where('userid', $id)
+        ->get();
+       
+    return view('adminhome.employeeupdate')->with('users', $user);
+    }
+
+    function employeeupdate(Request $request, $id)
+    {
+
+    $request->validate([
+      'empname'=>'required',
+     'username'=>'required',
+      'password'=>'required',
+      'phone'=>'required'
+      
+    
+        ]);
+        
+   User::where('userid', $id)->update(['empname' => $request->empname,
+    'username' => $request->username,
+    'password' => $request->password,
+    'phone' => $request->phone
+    
+  ]);
+
+        return redirect()->route('adminhome.empinfo', $id);
+
+  
+  }
+
+
+
+
 
 
    

@@ -10,33 +10,14 @@
 	<a href="{{route('logout.index')}}">logout</a>
 
 <br><br>
-	<table border="1">
-		<tr>
-			<td>Id</td>
-			<td>name</td>
-			<td>Company Name</td>
-			<td>Phone</td>
-			<td>Username</td>
-			<td>PAssword</td>
-		</tr>
-
-		@for($i=0; $i < count($emoloyees); $i++)
-
-			<tr>
-				<td>{{$emoloyees[$i]['eid']}}</td>
-				<td>{{$emoloyees[$i]['ename']}}</td>
-				<td>{{$emoloyees[$i]['cname']}}</td>
-				<td>{{$emoloyees[$i]['phone']}}</td>
-				<td>{{$emoloyees[$i]['username']}}</td>
-				<td>{{$emoloyees[$i]['password']}}</td>
-				<td>
-					
-				</td>
-			</tr>
-
-		@endfor
+	<div class="list-group" align="center" >
+    <div class="col-md-12 heading-section text-center ftco-animate mb-5">
+    @foreach($users as $user)
+  <a href="{{ route('adminhome.empinfo', $user->userid) }}" class="list-group-item list-group-item-action"><h4>{{$user->username}}</h4> <br> </a>
+ @endforeach
+</div>
+</div>
 
 
-	</table>
 </body>
 </html>
