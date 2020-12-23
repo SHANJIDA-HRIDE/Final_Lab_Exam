@@ -41,6 +41,9 @@ Route::get('/home/addjob', 'EmployeeController@addjob')->name('adminhome.addjob'
 Route::post('/home/addjob', 'EmployeeController@store');
 Route::get('/home/list', 'EmployeeController@joblist')->name('adminhome.joblist');
 Route::get('/home/list/info/{id}', 'EmployeeController@jobinfo')->name('adminhome.jobinfo');
+Route::get('/home/list/info/edit/{id}', 'EmployeeController@employeeedit')->name('job.edit');
+Route::post('/home/list/info/edit/{id}', 'EmployeeController@employeeupdate');
+Route::get('/home/list/info/delete/{id}', 'EmployeeController@employeedelete')->name('job.delete');
 
 
 Route::get('/logout', 'LogoutController@index')->name('logout.index');

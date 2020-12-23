@@ -60,4 +60,64 @@ class EmployeeController extends Controller
 
 
     }
+
+
+
+     function jobinfo($id){
+      $job = Job::where('jid', $id)
+                    ->get();
+        
+       
+                   
+        return view('employee.jobinfo')->with('jobs', $job);
+
+    
+    }
+
+
+
+     function employeeedit($id)
+    {
+        $job = Job::where('jid', $id)
+        ->get();
+       
+    return view('employee.jobupdate')->with('jobs', $job);
+    }
+
+    function employeeupdate(Request $request, $id)
+    {
+
+    $request->validate([
+      'cname'=>'required',
+     'jtitle'=>'required',
+      'loc'=>'required',
+      'sal'=>'required'
+      
+    
+        ]);
+        
+   Job::where('jid', $id)->update(['cname' => $request->cname,
+    'jtitle' => $request->jtitle,
+    'loc' => $request->loc,
+    'sal' => $request->sal
+    
+  ]);
+
+        return redirect()->route('adminhome.jobinfo', $id);
+
+  
+  }
+
+    function employeedelete($id)
+  {
+         $job = Job::find($id);
+
+        if($job->delete()){
+            $deletedRows = $user::where('jid', $id )->delete();
+            return redirect()->route('employee.joblist');
+        }else{
+            return redirect()->route('employee.joblist',$id);
+        }
+    }
+
 }
