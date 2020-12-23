@@ -44,4 +44,22 @@ class EmployeeController extends Controller
                  return redirect()->route('employee.index');
 
 }
+
+
+ function joblist(){
+       
+
+        
+
+        $user = User::where('type', '2')
+                    ->get();
+        return view('adminhome.emplist')->with('users', $user);
+
+
+        $job = Job::all();
+return view('employee.joblist')->with('user',  $job );
+
+
+
+    }
 }

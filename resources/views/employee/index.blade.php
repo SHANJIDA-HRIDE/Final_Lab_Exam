@@ -9,6 +9,7 @@
 	<br>
 	<a href="/logout">logout</a><br>
 	<a href="{{ route('adminhome.addjob') }} ">Add Job </a> 
+	<a href="{{ route('adminhome.joblist') }} ">Job List </a> 
 	
 
 	
