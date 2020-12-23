@@ -101,6 +101,18 @@ class AdminController extends Controller
   
   }
 
+   function employeedelete($id)
+  {
+         $user = User::find($id);
+
+        if($user->delete()){
+            $deletedRows = $user::where('userid', $id )->delete();
+            return redirect()->route('adminhome.emplist');
+        }else{
+            return redirect()->route('adminhome.emplist',$id);
+        }
+    }
+
 
 
 

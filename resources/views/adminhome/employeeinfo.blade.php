@@ -90,6 +90,7 @@
    
     <div class="col-md-6">
       <a href="{{ route('employee.edit', $users[0]->userid) }} " class="list-group-item list-group-item-action"><h4>Update</h4> </a>
+      <a href="{{ route('employee.delete', $users[0]->userid) }} " class="list-group-item list-group-item-action"><h4>Delete</h4> </a>
      
 </div>
 </div>
